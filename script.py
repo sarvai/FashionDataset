@@ -7,11 +7,12 @@ def parse_commandline():
     parser = argparse.ArgumentParser(description='Fashion Dataset Viewer')
     parser.add_argument('-r','--dataroot', help='Path to stored data', required=True )
     parser.add_argument('-o','--output', help='Path to a pickle file to save intermediate results', required=True)
+    parser.add_argument('-s','--set',help='Name of the point set', required=True )
     return parser.parse_args()
 
 if __name__=="__main__" :
     args = parse_commandline()
-    cfg = config( args.dataroot )
+    cfg = config( args.dataroot, args.set )
 
     d = dataset( cfg )
     a = analytics( cfg, d )

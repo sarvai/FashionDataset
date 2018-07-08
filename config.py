@@ -10,10 +10,11 @@ class config :
 
         self._cfg.path = path
 
-    def _add_data( self ):
+    def _add_data( self, point_set ):
         data = edict()
         data.CSV = edict()
-        data.CSV.POINTS = [ 'Batch_Arms', 'Batch_shoulders_and_neck', 'Batch_Torso' ]
+        #data.CSV.POINTS = [ 'Batch_Arms', 'Batch_shoulders_and_neck', 'Batch_Torso' ]
+        data.CSV.POINTS = [ point_set ]
         data.CSV.FILES = 'file_list'
 
         self._cfg.data = data
@@ -24,11 +25,11 @@ class config :
 
         self._cfg.vis = vis
 
-    def __init__( self, dataroot ):
+    def __init__( self, dataroot, point_set ):
         self._cfg = edict()
 
         self._add_path( dataroot )
-        self._add_data()
+        self._add_data( point_set )
         self._add_vis()
 
     @property
