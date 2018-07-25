@@ -21,12 +21,12 @@ class analytics :
             for e in self._dataset :
                 response_list[ e.name ] = '_'
 
+        start = -1
+
         for i, (key, item) in enumerate( response_list.items() ):
             if item == '_' :
                 start = i
                 break
-
-        print( start )
 
         if start == -1 :
             print('All images are verified, nothing to be done')
